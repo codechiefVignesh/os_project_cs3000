@@ -503,3 +503,23 @@ sys_pipe(void)
   }
   return 0;
 }
+
+
+
+uint64
+sys_socketalloc(void)
+{
+  struct file *f;
+  int fd;
+  
+  f = socketalloc();
+  if(f == 0)
+    return -1;
+
+  if((fd = fdalloc(f)) < 0){
+    fileclose(f);
+    return -1;
+  }
+
+  return fd;
+}
