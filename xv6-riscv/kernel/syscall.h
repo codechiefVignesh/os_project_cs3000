@@ -21,3 +21,6 @@
 #define SYS_mkdir  20
 #define SYS_close  21
 #define SYS_socketalloc  22
+#define SYS_socketread   23
+#define SYS_socketwrite   24
+#define SYS_socketclose   25

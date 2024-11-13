@@ -23,6 +23,9 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int socketalloc(void);
+int socketread(int, void*, int);
+int socketwrite(int, const void*, int);
+int socketclose(int);
 
 // ulib.c
 int stat(const char*, struct stat*);

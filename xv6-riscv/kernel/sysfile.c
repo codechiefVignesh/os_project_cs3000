@@ -523,3 +523,47 @@ sys_socketalloc(void)
 
   return fd;
 }
+
+uint64 sys_socketread(void) {
+    int fd;
+    struct file* f;
+    uint64 addr;
+    int n;
+
+    if (argfd(0, &fd, &f) < 0) {
+        return -1;
+    }
+
+    argaddr(1, &addr);
+    argint(2, &n);
+
+    return socketread(f, addr, n);
+}
+
+uint64 sys_socketwrite(void) {
+    int fd;
+    struct file* f;
+    uint64 addr;
+    int n;
+
+    if (argfd(0, &fd, &f) < 0) {
+        return -1;
+    }
+
+    argaddr(1, &addr);
+    argint(2, &n);
+
+    return socketwrite(f, addr, n);
+}
+
+uint64 sys_socketclose(void) {
+    int fd;
+    struct file* f;
+
+    if (argfd(0, &fd, &f) < 0) {
+        return -1;
+    }
+
+    socketclose(f);
+    return 0;
+}

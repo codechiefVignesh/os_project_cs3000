@@ -37,3 +37,6 @@ entry("sbrk");
 entry("sleep");
 entry("uptime");
 entry("socketalloc");
+entry("socketread");
+entry("socketwrite");
+entry("socketclose");
